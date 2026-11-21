@@ -118,88 +118,26 @@ export default function Home() {
       </header>
 
       <main>
-        {/* ── Hero ── */}
-        <section className="relative overflow-hidden">
-          {/* soft honeycomb accent, very subtle */}
-          <svg
-            className="pointer-events-none absolute -right-16 -top-10 h-72 w-72 text-honey opacity-15 sm:h-96 sm:w-96"
-            viewBox="0 0 200 200"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            aria-hidden
-          >
-            <path d="M100 10 140 33v46l-40 23-40-23V33l40-23Z" />
-            <path d="M140 79 180 102v46l-40 23-40-23v-46l40-23Z" />
-            <path d="M60 79 100 102v46l-40 23-40-23v-46l40-23Z" />
-            <path d="M100 148 140 171v-46l-40-23-40 23v46l40-23Z" />
-          </svg>
-
-          <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 pb-16 pt-12 sm:px-8 sm:pt-16 lg:grid-cols-2 lg:gap-14 lg:pb-24 lg:pt-20">
-            <div className="text-center lg:text-left">
-              <p className="inline-flex items-center rounded-full border border-amber-200 bg-white px-4 py-1.5 text-xs font-semibold tracking-wide text-honey-deep">
-                {hero.eyebrow}
-              </p>
-              <h1 className="mt-5 font-display text-5xl font-semibold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
-                Pure &amp;{" "}
-                <em className="text-honey-deep">Natural</em> Honey
-              </h1>
-              <p className="mx-auto mt-5 max-w-md text-base leading-relaxed text-stone-600 sm:text-lg lg:mx-0">
-                {hero.subtext}
-              </p>
-
-              {/* Price — real price supplied by the user */}
-              <div className="mt-6 flex flex-wrap items-center justify-center gap-3 lg:justify-start">
-                <span className="font-display text-4xl font-semibold">{hero.priceLine}</span>
-                <span className="text-xl text-stone-400 line-through">{hero.regularPriceLine}</span>
-                <span className="rounded-full bg-amber-100 px-3 py-1 text-sm font-semibold text-honey-deep">
-                  {hero.saveLine}
-                </span>
-              </div>
-
-              <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start">
-                <a
-                  href="#order"
-                  className="rounded-full bg-honey px-7 py-3.5 text-center text-base font-semibold text-ink shadow-sm transition hover:bg-[#d9930f] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-honey-deep"
-                >
-                  {hero.primaryCta}
-                </a>
-                <a
-                  href="#about"
-                  className="rounded-full border border-stone-300 bg-white px-7 py-3.5 text-center text-base font-semibold transition hover:border-stone-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-honey-deep"
-                >
-                  {hero.secondaryCta}
-                </a>
-              </div>
-
-              <ul className="mt-8 flex flex-wrap justify-center gap-2 lg:justify-start">
-                {hero.trustChips.map((chip) => (
-                  <li
-                    key={chip}
-                    className="flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-sm font-medium text-stone-700 shadow-sm ring-1 ring-stone-200/70"
-                  >
-                    <CheckIcon />
-                    {chip}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="relative mx-auto w-full max-w-sm lg:max-w-md">
-              <div className="overflow-hidden rounded-[2rem] bg-white shadow-xl shadow-amber-900/10 ring-1 ring-stone-200/60">
-                <Image
-                  src="/honey-jar.jpg"
-                  alt={hero.jarAlt}
-                  width={736}
-                  height={1349}
-                  priority
-                  className="h-auto w-full"
-                />
-              </div>
-              <p className="absolute -bottom-4 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-ink px-4 py-2 text-xs font-semibold tracking-wide text-white shadow-lg">
-                100% Raw · Local Harvest
-              </p>
-            </div>
+        {/* ── Hero: user's banner design, same to same ── */}
+        <section className="relative" aria-label="WAN NANEY Honey — Pure & Natural Local Harvest Honey">
+          <div className="relative mx-auto w-full max-w-[1440px]">
+            <Image
+              src="/hero-banner.jpg"
+              alt="WAN NANEY Honey — Pure & Natural Local Harvest Honey. Raw, unfiltered golden honey straight from local hives."
+              width={1376}
+              height={768}
+              priority
+              className="h-auto w-full"
+            />
+            {/* Functional Shop Now: transparent link placed exactly over the Shop Now pill in the banner */}
+            <a
+              href="#order"
+              aria-label="Shop Now — go to order"
+              className="absolute focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-honey-deep"
+              style={{ left: "7.5%", top: "74%", width: "18%", height: "9.5%" }}
+            >
+              <span className="sr-only">Shop Now</span>
+            </a>
           </div>
         </section>
 
