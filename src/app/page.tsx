@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import {
   benefits,
@@ -85,6 +85,68 @@ function Stars() {
   );
 }
 
+
+/* ---------- Product Details icons + curved arrows ---------- */
+
+function DetailIcon({ index }: { index: number }) {
+  const cls = "h-7 w-7";
+  const common = {
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: 1.8,
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const,
+    className: cls,
+    viewBox: "0 0 24 24",
+    "aria-hidden": true,
+  };
+  if (index === 0)
+    return (
+      <svg {...common}>
+        <path d="M5 19C5 9 12 4 20 4c0 8-5 15-15 15Z" />
+        <path d="M5 19c3-5 7-9 11-11" />
+      </svg>
+    );
+  if (index === 1)
+    return (
+      <svg {...common}>
+        <path d="M12 3s6.5 7 6.5 11.5a6.5 6.5 0 1 1-13 0C5.5 10 12 3 12 3Z" />
+        <path d="M9.5 14.5a2.5 2.5 0 0 0 2.5 2.5" />
+      </svg>
+    );
+  if (index === 2)
+    return (
+      <svg {...common}>
+        <path d="M12 2 4 5.5v5.6c0 5 3.4 8.6 8 10.4 4.6-1.8 8-5.4 8-10.4V5.5L12 2Z" />
+        <path d="m8.8 12 2.2 2.2 4.2-4.4" />
+      </svg>
+    );
+  return (
+    <svg {...common}>
+      <path d="M12 21s-7-5.1-7-11a7 7 0 1 1 14 0c0 5.9-7 11-7 11Z" />
+      <circle cx="12" cy="10" r="2.6" />
+    </svg>
+  );
+}
+
+function CurveArrow({ className }: { className: string }) {
+  return (
+    <svg
+      className={`pointer-events-none absolute hidden h-16 w-24 text-honey-deep lg:block ${className}`}
+      viewBox="0 0 96 64"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      <path d="M6 54 C 32 50, 58 36, 80 12" />
+      <path d="M70 10 82 8l-1 13" />
+    </svg>
+  );
+}
+
 /* ---------- page ---------- */
 
 export default function Home() {
@@ -93,6 +155,23 @@ export default function Home() {
   const [quantity, setQuantity] = useState<string>(order.quantities[0]);
 
   const reviewCards = [...reviews.items, ...reviews.items];
+
+  useEffect(() => {
+    const els = document.querySelectorAll(".reveal");
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 },
+    );
+    els.forEach((el) => obs.observe(el));
+    return () => obs.disconnect();
+  }, []);
 
   return (
     <div id="top" className="min-h-screen bg-cream text-ink">
@@ -120,7 +199,7 @@ export default function Home() {
       <main>
         {/* ── Hero: user's banner design, same to same ── */}
         <section className="relative" aria-label="WAN NANEY Honey — Pure & Natural Local Harvest Honey">
-          <div className="relative mx-auto w-full max-w-[1440px]">
+          <div className="hero-fade relative mx-auto w-full max-w-[1440px]">
             <Image
               src="/hero-banner.jpg"
               alt="WAN NANEY Honey — Pure & Natural Local Harvest Honey. Raw, unfiltered golden honey straight from local hives."
@@ -141,49 +220,87 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── Product Details ── */}
-        <section id="about" className="scroll-mt-20 bg-white py-16 sm:py-20">
-          <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 sm:px-8 lg:grid-cols-2 lg:gap-16">
-            <div className="order-2 mx-auto w-full max-w-sm lg:order-1">
-              <div className="overflow-hidden rounded-[2rem] shadow-lg shadow-amber-900/10 ring-1 ring-stone-200/60">
-                <Image
-                  src="/honey-jar.jpg"
-                  alt={hero.jarAlt}
-                  width={736}
-                  height={1349}
-                  loading="lazy"
-                  className="h-auto w-full"
-                />
-              </div>
-            </div>
-            <div className="order-1 lg:order-2">
+        {/* ── Product Details: poster style — big title, jar in the centre, detail pills around it ── */}
+        <section id="about" className="scroll-mt-20 overflow-hidden bg-white py-16 sm:py-24">
+          <div className="reveal mx-auto max-w-6xl px-5 sm:px-8">
+            <div className="text-center">
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-honey-deep">
-                Product Details
-              </p>
-              <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
                 {productDetails.heading}
+              </p>
+              <h2 className="mt-3 font-display text-5xl font-bold tracking-tight sm:text-6xl">
+                Product Details
               </h2>
-              <p className="mt-4 leading-relaxed text-stone-600">{productDetails.intro}</p>
-              <ul className="mt-8 space-y-6">
-                {productDetails.points.map((point) => (
-                  <li key={point.title} className="flex gap-4">
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-amber-100 text-honey-deep">
-                      <CheckIcon />
+              <svg
+                className="mx-auto mt-2 h-4 w-56 text-honey sm:w-72"
+                viewBox="0 0 288 16"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="5"
+                strokeLinecap="round"
+                aria-hidden
+              >
+                <path d="M6 11 C 80 3, 200 3, 282 9" />
+              </svg>
+              <p className="mx-auto mt-5 max-w-xl leading-relaxed text-stone-600">
+                {productDetails.intro}
+              </p>
+            </div>
+
+            <div className="relative mx-auto mt-12 lg:mt-14 lg:h-[560px] lg:max-w-5xl">
+              {/* jar in the centre, gently floating */}
+              <div className="relative z-10 mx-auto w-full max-w-[280px] lg:absolute lg:left-1/2 lg:top-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2">
+                <div className="animate-float overflow-hidden rounded-[2rem] shadow-xl shadow-amber-900/15 ring-1 ring-stone-200/60">
+                  <Image
+                    src="/honey-jar.jpg"
+                    alt={hero.jarAlt}
+                    width={736}
+                    height={1349}
+                    loading="lazy"
+                    className="h-auto w-full"
+                  />
+                </div>
+                <div className="mx-auto mt-5 h-3 w-3/4 rounded-full bg-amber-900/10 blur-[6px]" />
+              </div>
+
+              {/* curved arrows pointing at the jar (desktop only) */}
+              <CurveArrow className="left-[288px] top-[64px]" />
+              <CurveArrow className="bottom-[64px] left-[288px] -scale-y-100" />
+              <CurveArrow className="right-[288px] top-[64px] -scale-x-100" />
+              <CurveArrow className="bottom-[64px] right-[288px] -scale-x-100 -scale-y-100" />
+
+              {/* detail pills around the jar */}
+              <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:mt-0 lg:contents">
+                {productDetails.points.map((point, i) => (
+                  <article
+                    key={point.title}
+                    className={`flex items-start gap-4 rounded-3xl border border-stone-200/80 bg-cream p-5 text-left shadow-sm ring-1 ring-amber-100 transition hover:shadow-md ${
+                      [
+                        "lg:absolute lg:left-0 lg:top-4 lg:w-[280px]",
+                        "lg:absolute lg:right-0 lg:top-4 lg:w-[280px]",
+                        "lg:absolute lg:bottom-4 lg:left-0 lg:w-[280px]",
+                        "lg:absolute lg:bottom-4 lg:right-0 lg:w-[280px]",
+                      ][i]
+                    }`}
+                  >
+                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-amber-100 text-honey-deep ring-1 ring-amber-200">
+                      <DetailIcon index={i} />
                     </span>
                     <div>
-                      <h3 className="font-semibold">{point.title}</h3>
+                      <h3 className="font-display text-lg font-semibold leading-snug">
+                        {point.title}
+                      </h3>
                       <p className="mt-1 text-sm leading-relaxed text-stone-600">{point.text}</p>
                     </div>
-                  </li>
+                  </article>
                 ))}
-              </ul>
+              </div>
             </div>
           </div>
         </section>
 
         {/* ── Benefits ── */}
         <section id="benefits" className="scroll-mt-20 py-16 sm:py-20">
-          <div className="mx-auto max-w-6xl px-5 sm:px-8">
+          <div className="reveal mx-auto max-w-6xl px-5 sm:px-8">
             <div className="mx-auto max-w-xl text-center">
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-honey-deep">
                 Benefits
@@ -197,7 +314,7 @@ export default function Home() {
               {benefits.items.map((item) => (
                 <article
                   key={item.title}
-                  className="rounded-3xl border border-stone-200/80 bg-white p-6 shadow-sm transition hover:shadow-md"
+                  className="lift rounded-3xl border border-stone-200/80 bg-white p-6 shadow-sm"
                 >
                   <span className="flex h-12 w-12 items-center justify-center rounded-full bg-amber-100 text-honey-deep">
                     <BenefitIcon icon={item.icon} />
@@ -212,7 +329,7 @@ export default function Home() {
 
         {/* ── Reviews: ONE single sliding row ── */}
         <section id="reviews" className="scroll-mt-20 overflow-hidden bg-white py-16 sm:py-20">
-          <div className="mx-auto max-w-6xl px-5 text-center sm:px-8">
+          <div className="reveal mx-auto max-w-6xl px-5 text-center sm:px-8">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-honey-deep">Reviews</p>
             <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
               {reviews.heading}
@@ -249,7 +366,7 @@ export default function Home() {
 
         {/* ── FAQ ── */}
         <section id="faq" className="scroll-mt-20 py-16 sm:py-20">
-          <div className="mx-auto max-w-3xl px-5 sm:px-8">
+          <div className="reveal mx-auto max-w-3xl px-5 sm:px-8">
             <div className="text-center">
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-honey-deep">FAQ</p>
               <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
@@ -295,7 +412,7 @@ export default function Home() {
 
         {/* ── Order ── */}
         <section id="order" className="scroll-mt-20 bg-white py-16 sm:py-20">
-          <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 sm:px-8 lg:grid-cols-2 lg:gap-16">
+          <div className="reveal mx-auto grid max-w-6xl items-center gap-10 px-5 sm:px-8 lg:grid-cols-2 lg:gap-16">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-honey-deep">
                 Order Now
@@ -458,7 +575,7 @@ export default function Home() {
 
       {/* ── Footer ── */}
       <footer className="bg-ink text-stone-300">
-        <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 sm:grid-cols-3 sm:px-8">
+        <div className="reveal mx-auto grid max-w-6xl gap-10 px-5 py-14 sm:grid-cols-3 sm:px-8">
           <div>
             <p className="font-display text-2xl font-semibold text-white">{site.brand}</p>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-stone-400">{footer.about}</p>
