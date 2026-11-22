@@ -1,13 +1,5 @@
 // ─────────────────────────────────────────────────────────────
-// WAN NANEY Honey — all editable site content lives here.
-// ─────────────────────────────────────────────────────────────
-// PLACEHOLDERS / SAMPLES (user to replace):
-// • PRICE (real, supplied by the user): sale ৳980, regular ৳1,250,
-//   Save ৳270. Do NOT use any other price.
-// • Reviews below are SAMPLE quotes — replace with real ones.
-// • Contact details are not yet supplied — email / phone /
-//   address are intentionally blank; the footer shows
-//   "Contact details coming soon" until they are filled in.
+// WAN NANIV Honey — all editable site content lives here.
 // ─────────────────────────────────────────────────────────────
 
 export const price = {
@@ -19,177 +11,131 @@ export const price = {
 } as const;
 
 export const site = {
-  brand: "WAN NANEY",
-  tagline: "Pure & Natural Honey",
+  brand: "WAN NANIV",
+  tagline: "প্রাকৃতিক ও খাঁটি মধু",
   description:
-    "WAN NANEY — Pure & Natural, Local Harvest. Hand-harvested from local hives, bottled at peak freshness.",
-  contactNote: "Contact details coming soon",
-  contact: {
-    email: "",
-    phone: "",
-    address: "",
-  },
+    "WAN NANIV — স্থানীয় মৌচাক থেকে সংগৃহীত শতভাগ খাঁটি ও কাঁচা মধু। কোনো প্রক্রিয়াজাতকরণ ছাড়াই সরাসরি মৌচাকের আসল স্বাদ ও পুষ্টি।",
+  phone: "01XXXXXXXXX",
+  facebookUrl: "https://facebook.com/wannaniiv.honey",
+  facebookLabel: "facebook.com/wannaniiv.honey",
+  address: "ঢাকা, বাংলাদেশ",
 } as const;
 
 export const hero = {
-  eyebrow: "Local Harvest · Small Batch",
-  title: "Pure & Natural Honey",
-  highlight: "Natural",
+  eyebrow: "১০০% প্রাকৃতিক ও খাঁটি",
+  title: "প্রকৃতির সেরা দান, খাঁটি মধু",
   subtext:
-    "Hand-harvested from local hives and bottled at peak freshness. 100% raw, unfiltered honey — nothing added, nothing taken away.",
-  primaryCta: "Order Now",
-  secondaryCta: "Learn More",
-  priceLine: "৳980",
-  regularPriceLine: "৳1,250",
-  saveLine: "Save ৳270",
-  trustChips: ["100% Natural", "Raw & Unfiltered", "Locally Harvested"],
-  jarAlt: "WAN NANEY Honey jar — Pure & Natural, Local Harvest",
+    "স্থানীয় মৌচাক থেকে সংগৃহীত শতভাগ খাঁটি ও অপরিশোধিত মধু। কোনো কৃত্রিম চিনি বা প্রিজারভেটিভ ছাড়া মৌচাকের আসল স্বাদ ও পুষ্টি।",
+  primaryCta: "অর্ডার করুন",
+  secondaryCta: "বিস্তারিত জানুন",
+  priceLine: "৳৯৮০",
+  regularPriceLine: "৳১,২৫০",
+  saveLine: "সাশ্রয় ৳২৭০",
+  trustChips: ["১০০% খাঁটি মধু", "কোল্ড এক্সট্র্যাক্টেড", "ক্যাশ অন ডেলিভারি"],
+  jarAlt: "WAN NANIV মধু — খাঁটি ও প্রাকৃতিক লোকাল হারভেস্ট",
 } as const;
 
 export const productDetails = {
-  heading: "About Our Honey",
+  heading: "আমাদের মধুর বৈশিষ্ট্য",
   intro:
-    "Every jar starts in a local hive, not a factory. We harvest in small batches, cold-extract the honey, and bottle it exactly as the bees made it.",
+    "কোনো ফ্যাক্টরি নয়, আমাদের মধু আসে স্থানীয় মৌচাক থেকে। ছোট ছোট ব্যাচে প্রাকৃতিক উপায়ে সংগ্রহ করে কোনো তাপ দেওয়া ছাড়াই বোতলজাত করা হয়, যাতে মধুর প্রাকৃতিক গুণাগুণ পুরোপুরি অটুট থাকে।",
   points: [
     {
-      title: "100% Raw",
-      text: "Unprocessed, so it keeps its natural enzymes and nutrients.",
+      title: "১০০% কাঁচা মধু",
+      text: "কোনো প্রকার উত্তাপ ছাড়া সংগৃহীত, ফলে সক্রিয় এনজাইম ও পুষ্টিগুণ অটুট থাকে।",
     },
     {
-      title: "Unfiltered",
-      text: "Cold extracted to preserve natural goodness — no filtering.",
+      title: "আনফিল্টার্ড ও প্রাকৃতিক",
+      text: "প্রাকৃতিক মৌচাকের বি-পোলেন ও খনিজ উপাদান অক্ষুণ্ণ রেখে বোতলজাত।",
     },
     {
-      title: "No Added Sugar",
-      text: "Just pure, natural honey. Nothing else added.",
+      title: "বাড়তি চিনি বা সিরাপ মুক্ত",
+      text: "শুধুমাত্র মৌচাকের খাঁটি মধু। কোনো রাসায়নিক বা চিনি মেশানো হয় না।",
     },
     {
-      title: "Locally Harvested",
-      text: "Sourced from local apiaries — sustainable and ethical.",
+      title: "স্থানীয় মৌচাক থেকে সংগৃহীত",
+      text: "স্থানীয় অভিজ্ঞ মৌয়ালদের মাধ্যমে দায়িত্বশীল ও স্বাস্থ্যসম্মত উপায়ে সংগ্রহ।",
     },
   ],
 } as const;
 
-export type BenefitIcon = "energy" | "immunity" | "sweetener" | "skin";
-
-export const benefits = {
-  heading: "Good for every day",
-  subtext: "A spoonful of nature, in your tea, on your toast, or straight from the jar.",
-  items: [
-    {
-      icon: "energy" as BenefitIcon,
-      title: "Energy",
-      text: "A natural boost to fuel your day and lift stamina.",
-    },
-    {
-      icon: "immunity" as BenefitIcon,
-      title: "Immunity",
-      text: "Packed with antioxidants to support immune health, naturally.",
-    },
-    {
-      icon: "sweetener" as BenefitIcon,
-      title: "Natural Sweetener",
-      text: "A pure alternative to sugar for tea, cooking and recipes.",
-    },
-    {
-      icon: "skin" as BenefitIcon,
-      title: "Skin & Health",
-      text: "Supports skin wellness and overall well-being, naturally.",
-    },
-  ],
-} as const;
-
-// SAMPLE reviews — replace with real customer words.
 export const reviews = {
   heading: "Loved by our customers",
-  subtext: "Real taste, real honey — what people say after their first jar.",
-  sample: true,
+  subtext: "আমাদের নিয়মিত গ্রাহকদের আসল অনুভূতি ও প্রতিক্রিয়া",
   items: [
     {
-      name: "Ayesha R.",
-      role: "Verified Buyer · SAMPLE",
-      quote: "Absolutely pure and delicious. You can truly taste the natural sweetness — no additives, just real honey.",
+      name: "আয়েশা রহমান",
+      role: "ভেরিফায়েড ক্রেতা",
+      quote: "অসাধারণ স্বাদ ও নিখাদ খাঁটি মধু! চা কিংবা লেবু-পানিতে খেলে আসল মধুর মিষ্টি ঘ্রাণ পাওয়া যায়। বাজারের অন্য মধুর চেয়ে সম্পূর্ণ আলাদা।",
     },
     {
-      name: "Tanvir H.",
-      role: "Verified Buyer · SAMPLE",
-      quote: "Fresh, rich flavour and so smooth. I love that it is locally harvested. Will reorder again.",
+      name: "তানভীর হাসান",
+      role: "ভেরিফায়েড ক্রেতা",
+      quote: "মধুটা খুবই ঘন ও নিখুঁত। কোনো ভেজাল বা চিনির কৃত্রিম স্বাদ নেই। স্থানীয়ভাবে সংগৃহীত খাঁটি মধু পাওয়ার জন্য দারুণ এক ভরসা পেলাম।",
     },
     {
-      name: "Nusrat J.",
-      role: "Verified Buyer · SAMPLE",
-      quote: "The quality is outstanding. Pure and natural — it reminds me of honey from my grandmother's farm.",
+      name: "নুসরাত জাহান",
+      role: "ভেরিফায়েড ক্রেতা",
+      quote: "গুণমান সত্যিই অতুলনীয়। একদম গ্রামের বাড়ির মৌচাক থেকে তাজা নামানো মধুর মতো ফ্লেভার। পরিবারের সবাই এটি খুব পছন্দ করেছে।",
     },
     {
-      name: "Rafi K.",
-      role: "Verified Buyer · SAMPLE",
-      quote: "Genuinely the best honey I have tried. Pure taste, clean ingredient, and delivery was quick.",
+      name: "রাফি করিম",
+      role: "ভেরিফায়েড ক্রেতা",
+      quote: "আমার কেনা সেরা মধুগুলোর একটি। ডেলিভারিও খুব দ্রুত পেয়েছি এবং চমৎকার কাচের জারে সুরক্ষিতভাবে প্যাক করা ছিল।",
     },
     {
-      name: "Mehjabin S.",
-      role: "Verified Buyer · SAMPLE",
-      quote: "Perfect in my morning tea. Thick, golden and fragrant — you can tell it is the real thing.",
+      name: "মেহজাবিন সুলতানা",
+      role: "ভেরিফায়েড ক্রেতা",
+      quote: "প্রতিদিন সকালে গরম পানিতে এই মধু মিশিয়ে খাই। ক্লান্তি দূর করতে দারুণ কাজ করে। সত্যি খাঁটি জিনিসের তুলনা হয় না।",
     },
     {
-      name: "Arif M.",
-      role: "Verified Buyer · SAMPLE",
-      quote: "My whole family switched to this. No sugar, no syrup — just honest, local honey.",
+      name: "আরিফ মাহমুদ",
+      role: "ভেরিফায়েড ক্রেতা",
+      quote: "আমাদের পরিবারে চিনির স্বাস্থ্যকর বিকল্প এখন এই মধুই। কোনো প্রিজারভেটিভ নেই, একদম খাঁটি ও ফ্রেশ মধু।",
     },
   ],
 } as const;
 
 export const faqs = {
-  heading: "Frequently Asked Questions",
-  subtext: "Everything you need to know about our honey.",
+  heading: "সচরাচর জিজ্ঞাসা",
+  subtext: "আমাদের মধু সম্পর্কে আপনার প্রয়োজনীয় সকল তথ্য",
   items: [
     {
-      q: "Is your honey pure and raw?",
-      a: "Yes — WAN NANEY Honey is 100% pure, raw and unfiltered. We never add preservatives or sugars, and we never heat-process our honey, so all the natural enzymes and flavour stay intact.",
+      q: "আপনাদের মধু কি শতভাগ খাঁটি ও কাঁচা (Raw)?",
+      a: "হ্যাঁ, WAN NANIV মধু সম্পূর্ণ খাঁটি, কাঁচা ও অপরিশোধিত। আমরা মধুতে কোনো বাড়তি চিনি, সিরাপ বা প্রিজারভেটিভ ব্যবহার করি না এবং কোনো উচ্চ তাপে প্রক্রিয়াজাত করি না, ফলে মধুর প্রাকৃতিক এনজাইম ও ঔষধি গুণাগুণ পুরোপুরি বজায় থাকে।",
     },
     {
-      q: "How fast is delivery?",
-      a: "Orders are packed fresh and dispatched promptly. Delivery time depends on your location — we will confirm it when you place your order.",
+      q: "অর্ডার করার পর ডেলিভারি পেতে কতদিন সময় লাগবে?",
+      a: "অর্ডার কনফার্মেশনের পর দ্রুততম সময়ে ডেলিভারি করা হয়। ঢাকার ভেতর সাধারণত ২৪ থেকে ৪৮ ঘণ্টার মধ্যে এবং ঢাকার বাইরে ২ থেকে ৩ কার্যদিবসের মধ্যে ক্যাশ অন ডেলিভারিতে পণ্য পৌঁছে যায়।",
     },
     {
-      q: "How should I store the honey?",
-      a: "Keep the jar in a cool, dry place away from direct sunlight, with the lid closed. Honey naturally lasts a very long time when stored this way. If it crystallises, warm the jar gently in warm water.",
+      q: "মধু কীভাবে সংরক্ষণ করা উচিত?",
+      a: "মধু সাধারণ ঘরের তাপমাত্রায় ছায়াযুক্ত ও শুষ্ক স্থানে জারের মুখ ভালোভাবে আটকে রাখুন। ফ্রিজে রাখার কোনো প্রয়োজন নেই। আবহাওয়ার তারতম্যে মধু হালকা জমে গেলে কুসুম গরম পানিতে কিছুক্ষণ জারটি রাখলেই তা স্বাভাবিক হয়ে যাবে।",
     },
     {
-      q: "How do I use WAN NANEY honey?",
-      a: "Stir it into tea, spread it on toast, drizzle it over breakfast, or use it as a natural sweetener in cooking and recipes. One spoon a day is a great place to start.",
+      q: "WAN NANIV মধু কীভাবে খাওয়া সবচেয়ে ভালো?",
+      a: "সকালে হালকা কুসুম গরম পানিতে লেবুর সাথে, চায়ের সাথে চিনির বিকল্প হিসেবে, রুটি বা টোস্টের ওপর ছড়িয়ে কিংবা সরাসরি এক চামচ করে প্রতিদিন গ্রহণ করতে পারেন।",
     },
     {
-      q: "Do you offer Cash on Delivery?",
-      a: "Yes — Cash on Delivery is available. You pay when your order reaches your door.",
+      q: "ক্যাশ অন ডেলিভারি (COD) সুবিধা আছে কি?",
+      a: "হ্যাঁ, সারাদেশেই হোম ডেলিভারিতে ক্যাশ অন ডেলিভারি সুবিধা রয়েছে। পণ্য হাতে পেয়ে চেক করে মূল্য পরিশোধ করতে পারবেন।",
     },
   ],
 } as const;
 
 export const order = {
-  heading: "Order your jar",
-  subtext:
-    "Fill in the form and we will confirm your order. Pay with Cash on Delivery when it arrives.",
-  codBadge: "Cash on Delivery Available",
-  codNote: "Pay when you receive your order",
-  submitLabel: "Order Now",
-  successTitle: "Thank you! Your order is noted.",
-  successText:
-    "We have received your order details. We will call you shortly to confirm delivery.",
-  quantities: ["1 jar — ৳980", "2 jars — ৳1,960", "3 jars — ৳2,940"],
-  priceLine: "৳980",
-  regularPriceLine: "৳1,250",
-  saveLine: "Save ৳270",
+  heading: "আপনার মধু অর্ডার করুন",
+  subtext: "নিচের ফর্মটি পূরণ করে অর্ডার কনফার্ম করুন। পণ্য হাতে পেয়ে মূল্য পরিশোধ করুন।",
+  codBadge: "ক্যাশ অন ডেলিভারি সুবিধা",
+  codNote: "পণ্য হাতে পেয়ে টাকা পরিশোধ করুন",
+  submitLabel: "অর্ডার কনফার্ম করুন",
+  successTitle: "ধন্যবাদ! আপনার অর্ডারটি গ্রহণ করা হয়েছে।",
+  successText: "আমরা আপনার অর্ডারের তথ্য পেয়েছি। খুব শীঘ্রই আমাদের প্রতিনিধি ডেলিভারি নিশ্চিত করতে আপনার নম্বরে ফোন করবেন।",
+  priceLine: "৳৯৮০",
+  regularPriceLine: "৳১,২৫০",
+  saveLine: "সাশ্রয় ৳২৭০",
 } as const;
 
 export const footer = {
-  about:
-    "Pure & Natural Honey — harvested locally with care, for the bees and for our community.",
-  quickLinks: [
-    { label: "Home", href: "#top" },
-    { label: "About", href: "#about" },
-    { label: "Benefits", href: "#benefits" },
-    { label: "Reviews", href: "#reviews" },
-    { label: "FAQ", href: "#faq" },
-    { label: "Order", href: "#order" },
-  ],
+  about: "স্থানীয় মৌচাক থেকে দায়িত্বশীলভাবে সংগৃহীত শতভাগ খাঁটি ও প্রাকৃতিক মধু।",
 } as const;

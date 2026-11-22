@@ -1,30 +1,28 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
 
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  style: ["normal", "italic"],
-});
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
-
 export const metadata: Metadata = {
-  title: "WAN NANEY Honey — Pure & Natural, Local Harvest",
+  title: "WAN NANIV — প্রকৃতির সেরা দান, খাঁটি মধু",
   description:
-    "WAN NANEY — 100% raw, unfiltered, locally harvested honey. Pure & natural, bottled at peak freshness. Cash on Delivery available.",
+    "WAN NANIV — শতভাগ খাঁটি, কাঁচা ও প্রাকৃতিক লোকাল হারভেস্ট মধু। কোনো প্রিজারভেটিভ ছাড়া মৌচাকের আসল স্বাদ। সারাদেশে ক্যাশ অন ডেলিভারি।",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${inter.variable}`}>
-      <body className="min-h-screen bg-cream font-sans text-ink antialiased">
+    <html lang="bn" className="scroll-smooth">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Noto+Serif+Bengali:wght@400;600;700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className="min-h-screen bg-[#F8F0E2] font-sans text-[#382719] antialiased selection:bg-[#E8D3AD] selection:text-[#382719]">
         {children}
       </body>
     </html>

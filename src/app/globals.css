@@ -1,128 +1,218 @@
 @import "tailwindcss";
 
 @theme {
-  --font-display: "Fraunces", Georgia, serif;
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --color-cream: #fffbf2;
-  --color-honey: #e9a319;
-  --color-honey-deep: #b45309;
-  --color-ink: #1c1917;
+  --font-serif: "Noto Serif Bengali", "DM Serif Display", Georgia, serif;
+  --font-sans: "Hind Siliguri", "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  
+  --color-bg-primary: #F8F0E2;
+  --color-bg-secondary: #FFF9F0;
+  --color-accent: #D99A24;
+  --color-accent-hover: #BF8218;
+  --color-accent-subtle: #F3E5CB;
+  
+  --color-ink-primary: #382719;
+  --color-ink-secondary: #63503F;
+  --color-ink-faint: #917F6F;
+  
+  --color-beige: #E8D3AD;
+  --color-beige-light: #F4E7CE;
+  --color-beige-border: #DFCCA4;
+  
+  --color-botanical: #4D5D43;
+  --color-botanical-light: #EFF4EB;
 }
 
 html {
   scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 body {
-  background-color: #fffbf2;
-  color: #1c1917;
+  background-color: #F8F0E2;
+  background-image: 
+    radial-gradient(ellipse at 10% 8%, rgba(217, 154, 36, 0.06) 0%, transparent 40%),
+    radial-gradient(ellipse at 90% 25%, rgba(217, 154, 36, 0.05) 0%, transparent 45%),
+    radial-gradient(ellipse at 20% 60%, rgba(217, 154, 36, 0.05) 0%, transparent 40%),
+    radial-gradient(ellipse at 85% 80%, rgba(217, 154, 36, 0.06) 0%, transparent 45%);
+  background-attachment: fixed;
+  color: #382719;
   font-family: var(--font-sans);
-  overflow-x: clip;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 ::selection {
-  background-color: #fde68a;
-  color: #1c1917;
+  background-color: #E8D3AD;
+  color: #382719;
 }
 
-/* Reviews: one continuous row, never stops, pauses on hover / touch-hold */
-@keyframes marquee {
-  from {
-    transform: translateX(0);
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F8F0E2;
+}
+::-webkit-scrollbar-thumb {
+  background: #E8D3AD;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D99A24;
+}
+
+/* Smooth reveal animation */
+.reveal {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Gentle floating animation for product and ingredients */
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
   }
-  to {
-    transform: translateX(-50%);
+  50% {
+    transform: translateY(-6px) rotate(0.3deg);
   }
 }
 
-.marquee-track {
-  animation: marquee 42s linear infinite;
+@keyframes floatGentleAlt {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(5px) rotate(-0.3deg);
+  }
+}
+
+.animate-float-gentle {
+  animation: floatGentle 6s ease-in-out infinite;
+}
+
+.animate-float-alt {
+  animation: floatGentleAlt 7s ease-in-out infinite;
+}
+
+/* Soft shimmer / pulse for honey glow */
+@keyframes honeyGlow {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.03);
+  }
+}
+
+.animate-honey-glow {
+  animation: honeyGlow 8s ease-in-out infinite;
+}
+
+/* Micro-interaction hover */
+.card-hover-lift {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+}
+.card-hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -8px rgba(56, 39, 25, 0.08), 0 3px 8px -2px rgba(56, 39, 25, 0.03);
+  border-color: #D99A24;
+}
+
+/* Elegant recurring shine effect on Order Now button */
+@keyframes buttonShineSweep {
+  0%, 72% {
+    transform: translateX(-180%) skewX(-25deg);
+    opacity: 0;
+  }
+  73% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(280%) skewX(-25deg);
+    opacity: 0;
+  }
+}
+
+.btn-shine-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shine-effect::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.45) 50%,
+    transparent 100%
+  );
+  transform: translateX(-180%) skewX(-25deg);
+  animation: buttonShineSweep 4.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  pointer-events: none;
+}
+
+/* Continuous Right-to-Left Infinite Marquee */
+@keyframes marqueeRTL {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+.marquee-container {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  width: 100%;
+}
+
+.marquee-content {
+  display: flex;
+  flex-shrink: 0;
+  gap: 1.25rem;
+  animation: marqueeRTL 28s linear infinite;
   will-change: transform;
 }
 
-.marquee:hover .marquee-track,
-.marquee:active .marquee-track {
+.marquee-container:hover .marquee-content {
   animation-play-state: paused;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .marquee-track {
-    animation: none;
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .animate-float-gentle,
+  .animate-float-alt,
+  .animate-honey-glow,
+  .btn-shine-effect::after,
+  .marquee-content {
+    animation: none !important;
+  }
+  .card-hover-lift:hover {
+    transform: none !important;
   }
   html {
     scroll-behavior: auto;
-  }
-}
-
-/* ── Site-wide animation effects ── */
-
-/* Scroll-reveal: sections fade + rise into view */
-.reveal {
-  opacity: 0;
-  transform: translateY(28px);
-  transition:
-    opacity 0.7s ease,
-    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.reveal.is-visible {
-  opacity: 1;
-  transform: none;
-}
-
-/* Gentle float for the hero product in Product Details */
-@keyframes floaty {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-12px);
-  }
-}
-.animate-float {
-  animation: floaty 6s ease-in-out infinite;
-  will-change: transform;
-}
-
-/* Hero banner fades in on load */
-@keyframes heroIn {
-  from {
-    opacity: 0;
-    transform: scale(1.02);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-.hero-fade {
-  animation: heroIn 0.9s ease both;
-}
-
-/* Cards lift slightly on hover */
-.lift {
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-}
-.lift:hover {
-  transform: translateY(-4px);
-  box-shadow:
-    0 12px 30px -12px rgb(180 83 9 / 0.25),
-    0 4px 12px -4px rgb(28 25 23 / 0.08);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .reveal {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-  .animate-float,
-  .hero-fade {
-    animation: none;
-  }
-  .lift:hover {
-    transform: none;
   }
 }
