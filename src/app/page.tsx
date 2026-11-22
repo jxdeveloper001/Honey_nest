@@ -162,7 +162,7 @@ export default function Home() {
           <a
             href="#top"
             className="flex shrink-0 items-center gap-2 transition-transform hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D99A24]"
-            aria-label="WAN NANIV Home"
+            aria-label="Honey Nest Home"
           >
             <BrandLogo className="h-6 w-6 sm:h-7 sm:w-7" />
             <span className="font-serif text-base sm:text-xl font-bold tracking-wider text-[#382719]">
@@ -296,7 +296,7 @@ export default function Home() {
                     </svg>
                   </div>
 
-                  {/* New HD WAN NANIV Honey Jar in Foreground */}
+                  {/* New HD Honey Nest Jar in Foreground */}
                   <div className="animate-float-gentle absolute z-10 w-full max-w-[210px] sm:max-w-[240px] lg:max-w-[260px]">
                     <Image
                       src="/honey-jar-cutout.png"

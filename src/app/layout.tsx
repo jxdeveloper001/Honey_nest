@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "WAN NANIV — প্রকৃতির সেরা দান, খাঁটি মধু",
+  title: "Honey Nest — প্রকৃতির সেরা দান, খাঁটি মধু",
   description:
-    "WAN NANIV — শতভাগ খাঁটি, কাঁচা ও প্রাকৃতিক লোকাল হারভেস্ট মধু। কোনো প্রিজারভেটিভ ছাড়া মৌচাকের আসল স্বাদ। সারাদেশে ক্যাশ অন ডেলিভারি।",
+    "Honey Nest — শতভাগ খাঁটি, কাঁচা ও প্রাকৃতিক লোকাল হারভেস্ট মধু। কোনো প্রিজারভেটিভ ছাড়া মৌচাকের আসল স্বাদ। সারাদেশে ক্যাশ অন ডেলিভারি।",
 };
 
 export default function RootLayout({
